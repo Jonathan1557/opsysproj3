@@ -74,7 +74,14 @@ directory getdir( int clustnum, fatstruct f);
 int  firstSecClus(fatstruct fs, int clus); 				// finds first "data" sector of cluster clus
 int getData(FILE * gfp, int offset, int size); 				// actually gets the info, given an offset and a size given in fatspec
 fatstruct getInfo(FILE * gfp); // get info from boot section needed for rest of program
-
+int nextCluster(int c);// grab next cluster
+bool addCluster(int end, int num);
+bool removeCluster(int n);// delete na nd all clusters after n, ste data to all zeroes
+bool openFile(int clus, char * mode);
+bool closeFile(int clus);
+bool canRead(int clus);
+bool canWrite(int clus);	
+bool closeAll();	
 // end utility functions
 
 
